@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff9f1" />
+    <title>我是佳玲｜我的自我介紹</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="我是佳玲">
+          <span class="brand-drop" aria-hidden="true">💧</span>
+          <span>我是佳玲</span>
+        </div>
+        <button class="sound-button" id="readButton" type="button" aria-label="念出目前題目">
+          <span aria-hidden="true">🔊</span><span>念給我聽</span>
+        </button>
+      </header>
+
+      <section id="welcomeScreen" class="screen welcome-screen">
+        <div class="welcome-art" aria-hidden="true">🌼</div>
+        <p class="eyebrow">我的自我介紹 · 第一天</p>
+        <h1>今天，聊聊我自己</h1>
+        <p class="lead">這不是考試，也沒有標準答案。<br />每一題選一個最像自己的答案就好。</p>
+        <div class="today-card">
+          <span class="today-number">5</span>
+          <span>今天只回答五題<br /><small>只要選 1、2 或 3</small></span>
+        </div>
+        <button class="primary-button" id="startButton" type="button">開始回答 <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section id="questionScreen" class="screen question-screen" hidden>
+        <div class="progress-row">
+          <button class="back-link" id="backButton" type="button" aria-label="回到上一題">← 上一題</button>
+          <span id="progressText">第 1 題，共 5 題</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+
+        <article class="question-card" aria-live="polite">
+          <div class="question-number" id="questionNumber">1</div>
+          <h2 id="questionTitle"></h2>
+          <p class="hint">請選一個最接近自己的答案</p>
+          <div class="options" id="options"></div>
+          <button class="supplement-toggle" id="supplementToggle" type="button" aria-expanded="false">＋ 我還想補充</button>
+          <div class="supplement" id="supplement" hidden>
+            <label for="supplementInput">想說的話（可以不填）</label>
+            <textarea id="supplementInput" rows="3" placeholder="請在這裡輸入…"></textarea>
+          </div>
+        </article>
+        <p class="selection-tip" id="selectionTip">選好答案後，會自動到下一題</p>
+      </section>
+
+      <section id="reviewScreen" class="screen review-screen" hidden>
+        <div class="celebration" aria-hidden="true">✨</div>
+        <p class="eyebrow">五題都完成了</p>
+        <h1>這就是佳玲的回答</h1>
+        <p class="lead">請慢慢看一次，想改哪一題都可以。</p>
+        <div id="answerList" class="answer-list"></div>
+
+        <article class="final-card">
+          <label for="finalMessage">我最想讓別人知道的一句話</label>
+          <textarea id="finalMessage" rows="3" placeholder="想說的時候再填就好…"></textarea>
+        </article>
+
+        <article class="final-card">
+          <h2>今天的回答方式</h2>
+          <div id="methodOptions" class="compact-options"></div>
+        </article>
+
+        <fieldset class="confirm-box">
+          <legend>最後確認</legend>
+          <label><input type="radio" name="confirmation" value="符合" /> <span>以上答案符合我的意思</span></label>
+          <label><input type="radio" name="confirmation" value="修改" /> <span>我想修改答案</span></label>
+        </fieldset>
+
+        <button class="primary-button" id="finishButton" type="button">完成並傳送</button>
+        <p class="send-note" id="sendNote">送出後，老師會在紀錄表中收到答案。</p>
+      </section>
+
+      <section id="doneScreen" class="screen done-screen" hidden>
+        <div class="done-icon" aria-hidden="true">✓</div>
+        <p class="eyebrow">今天完成了</p>
+        <h1>謝謝佳玲分享自己</h1>
+        <p class="lead" id="doneMessage">答案已經傳送給老師，也保存在這台裝置裡。<br />今天辛苦了，可以休息囉。</p>
+        <div class="share-card">
+          <span class="share-icon" aria-hidden="true">💬</span>
+          <div><strong>讓老師幫我記錄</strong><small>按下後，選擇 LINE 傳送</small></div>
+        </div>
+        <button class="primary-button share-button" id="shareButton" type="button">傳送答案給小水滴老師</button>
+        <button class="secondary-button" id="editAgainButton" type="button">回去看看答案</button>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
